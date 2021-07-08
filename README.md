@@ -42,3 +42,48 @@ useEffect(() => {
 ```
 
 2. todo App
+
+3. Custom Hook
+
+```js
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+
+function useFetch(url) {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const {data: responseData} = await axios.get(url);
+      setData(responseData);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return {loading, data, error};
+}
+
+export default useFetch;
+```
+
+custom hook'un kullanımı:
+
+```js
+import useFetch from './hooks/useFetch'
+
+function App(){
+  const {error, loading, data} = useFetch(Config.API_URL)
+  .
+  .
+  .
+}
+```
