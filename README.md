@@ -1,6 +1,6 @@
-## Patika dev
+# Patika dev
 
-1. PatikaStore App
+## PatikaStore App
 
 - Notlar
 
@@ -41,7 +41,7 @@ useEffect(() => {
 }, []);
 ```
 
-2. todo App
+## todo App
 
 3. Custom Hook
 
@@ -82,8 +82,13 @@ import useFetch from './hooks/useFetch'
 
 function App(){
   const {error, loading, data} = useFetch(Config.API_URL)
+  console.log("render")
+  console.log({loading, data: data.length, error})
+  console.log("_______________________________________")
   .
   .
   .
 }
 ```
+
+## Tarifka
