@@ -92,3 +92,47 @@ function App(){
 ```
 
 ## Tarifka
+
+- Custom hook'tan state'lerin yanısıra bir fonksiyon da dışarı çıkarabiliriz.
+
+```js
+import {useState} from 'react';
+import axios from 'axios';
+
+function usePost() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
+  const postData = async (url, payload) => {
+    try {
+      setLoading(false);
+      const {data: responseData} = await axios.get(url, payload);
+      setData(responseData);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  return {loading, data, error, postData};
+}
+
+export default usePost;
+```
+
+- custom hook'un kullanımı:
+
+```js
+import usePost from './hooks/usePost';
+
+function App() {
+  const {error, loading, data, postData} = usePost();
+
+  function handleLogin(values) {
+    postData(`${Config.API_AUTH_URL}/login`, values);
+  }
+}
+```
+
+## kodwork App

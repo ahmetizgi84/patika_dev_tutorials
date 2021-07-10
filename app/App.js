@@ -4,14 +4,16 @@ import { View } from 'react-native'
 
 import { Home as PatikaStoreHome } from './patikaStore/screens'
 import { Home as TodoAppHome } from './todoApp/screens'
-import Router from './tarifkaApp/Router'
+import TarifkaAppRouter from './tarifkaApp/Router'
+import KodWorkRouter from './kodworkApp/Router'
 
 function App() {
   return (
     <View style={{ flex: 1 }}>
       {/* <PatikaStoreHome /> */}
       {/* <TodoAppHome /> */}
-      <Router />
+      {/* <TarifkaAppRouter /> */}
+      <KodWorkRouter />
     </View>
   )
 }
