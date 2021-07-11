@@ -38,8 +38,12 @@ function Router() {
         <NavigationContainer>
             <Drawer.Navigator>
                 <Drawer.Screen name="Home" component={JobRoot} />
-                <Drawer.Screen name="Favourite" component={FavouriteJobsScreen} />
-                <Drawer.Screen name="Applied" component={AppliedJobsScreen} />
+                <Drawer.Screen name="Favourite Jobs" component={FavouriteJobsScreen} options={{
+                    headerShown: true
+                }} />
+                <Drawer.Screen name="Applied Jobs" component={AppliedJobsScreen} options={{
+                    headerShown: true
+                }} />
             </Drawer.Navigator>
         </NavigationContainer>
     )

@@ -5,7 +5,7 @@ import { View } from 'react-native'
 import { Home as PatikaStoreHome } from './patikaStore/screens'
 import { Home as TodoAppHome } from './todoApp/screens'
 import TarifkaAppRouter from './tarifkaApp/Router'
-import KodWorkRouter from './kodworkApp/Router'
+import KodWorkWrapper from './kodworkApp/Wrapper'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       {/* <PatikaStoreHome /> */}
       {/* <TodoAppHome /> */}
       {/* <TarifkaAppRouter /> */}
-      <KodWorkRouter />
+      <KodWorkWrapper />
     </View>
   )
 }

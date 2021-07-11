@@ -1,12 +1,56 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ToastAndroid } from 'react-native'
 import { WebView } from 'react-native-webview';
+import { useDispatch, useSelector } from 'react-redux'
+import { addToFavAction } from '../redux/Fav/actions'
+import { submitAJobAction } from '../redux/Applied/actions'
+
 
 import { Layout, Button } from '../components'
 
 const JobDetailScreen = ({ route }) => {
     const { item } = route.params
     const [jobDetail, setJobDetail] = useState(item)
+    const dispatch = useDispatch()
+    const { favouriteJobs } = useSelector(state => state.fav)
+    const { submittedJobs } = useSelector(state => state.app)
+
+
+    function addToFavHandler() {
+        const result = favouriteJobs.find(job => job.id == item.id)
+        if (result) {
+            ToastAndroid.showWithGravity(
+                "Bu ilan zaten favori ilanınız olarak bulunuyor.",
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER
+            );
+        } else {
+            dispatch(addToFavAction(item));
+            ToastAndroid.showWithGravity(
+                "Favori ilanlara eklendi.",
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER
+            );
+        }
+    }
+
+    function submitAJobHandler() {
+        const result = submittedJobs.find(job => job.id == item.id)
+        if (result) {
+            ToastAndroid.showWithGravity(
+                "Bu ilana daha önce başvuru yaptınız. Yeniden başvuru yapamazsınız",
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER
+            );
+        } else {
+            dispatch(submitAJobAction(item));
+            ToastAndroid.showWithGravity(
+                "İlana başvuru yapıldı.",
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER
+            );
+        }
+    }
 
 
     return (
@@ -41,8 +85,8 @@ const JobDetailScreen = ({ route }) => {
                 paddingVertical: 10,
                 flexDirection: 'row',
             }}>
-                <Button onPress={null} text="Submit" icon="application-import" />
-                <Button onPress={null} text="Favourite Job" icon="heart" />
+                <Button onPress={submitAJobHandler} text="Submit" icon="application-import" containerStyle={{ marginRight: 10, flex: 1 }} />
+                <Button onPress={addToFavHandler} text="Favourite Job" icon="heart" containerStyle={{ flex: 1 }} />
             </View>
 
         </Layout>

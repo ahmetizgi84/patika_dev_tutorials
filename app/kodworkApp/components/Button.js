@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-const Button = ({ onPress, text, icon }) => {
+const Button = ({ onPress, text, icon, containerStyle }) => {
     return (
         <TouchableOpacity
-            style={styles.btnContainer}
+            style={[styles.btnContainer, containerStyle]}
             onPress={onPress}
         >
             <View style={styles.btnContent}>
@@ -21,13 +21,11 @@ export default Button
 
 const styles = StyleSheet.create({
     btnContainer: {
-        flex: 1,
         backgroundColor: '#EF5350',
         paddingVertical: 12,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 10,
     },
     btnContent: {
         flexDirection: 'row',
