@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "230960589224",
+    "project_id": "codetalks-c90ee",
+    "storage_bucket": "codetalks-c90ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230960589224:android:3e04ac88454c4a742e959d",
+        "android_client_info": {
+          "package_name": "com.patika_dev_tutorials"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230960589224-s8qsfkaqbm8eu80r2gi3kb1va1jj999s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeUE0TistU8rOs7av30gzlAD5eugPHS68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230960589224-s8qsfkaqbm8eu80r2gi3kb1va1jj999s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

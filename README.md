@@ -136,3 +136,10 @@ function App() {
 ```
 
 ## kodwork App
+
+## react native firebase entegrasyonu
+
+https://rnfirebase.io/
+Documentation
+
+- npm install --save @react-native-firebase/app

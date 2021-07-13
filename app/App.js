@@ -6,6 +6,7 @@ import { Home as PatikaStoreHome } from './patikaStore/screens'
 import { Home as TodoAppHome } from './todoApp/screens'
 import TarifkaAppRouter from './tarifkaApp/Router'
 import KodWorkWrapper from './kodworkApp/Wrapper'
+import CodeTalksAppRouter from './codeTalksApp/Router'
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <PatikaStoreHome /> */}
       {/* <TodoAppHome /> */}
       {/* <TarifkaAppRouter /> */}
-      <KodWorkWrapper />
+      {/* <KodWorkWrapper /> */}
+      <CodeTalksAppRouter />
     </View>
   )
 }
