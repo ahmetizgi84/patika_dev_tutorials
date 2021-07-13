@@ -27,7 +27,6 @@ const LoginScreen = ({ navigation }) => {
         setLoading(true)
         auth().signInWithEmailAndPassword(formValues.email, formValues.password)
             .then(() => {
-                navigation.navigate("Rooms")
                 setLoading(false)
             }).catch(error => {
                 showMessage({
