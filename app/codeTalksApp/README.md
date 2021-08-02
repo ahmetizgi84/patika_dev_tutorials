@@ -135,7 +135,24 @@ const createNotificationChannel = () => {
 8. Artık push notification'ı istediğimiz zaman gösterebiliriz. Bu örnekte butona basıldığında notification gösterilecek
 
 ```js
+const handleNotification = () => {
+  PushNotification.localNotification({
+    channelId: 'test-channel-id',
+    title: 'Notification Title',
+    message: 'Hello from notification message',
+    bigText: 'This is a bigtext which contains large amount of data described',
+    color: 'green',
+    //id: 1,
+  });
 
+  PushNotification.localNotificationSchedule({
+    channelId: 'test-channel-id',
+    title: 'Alarm',
+    message: 'You clicked notification button 20 seconds ago',
+    date: new Date(Date.now() + 20 * 1000),
+    allowWhileIdle: true,
+  });
+};
 ```
 
 - Yukarıdaki ayarlar yapıldıktan sonra uygulama, yerel olarak push notification göndermeye hazırlanmış oluyor.
