@@ -157,3 +157,38 @@ const handleNotification = () => {
 
 - Yukarıdaki ayarlar yapıldıktan sonra uygulama, yerel olarak push notification göndermeye hazırlanmış oluyor.
   Uzaktan notification göndermek için aşağıdaki ayarları ek olarak yapmamız gerekir.
+
+## Remote Push Notification using Firebase
+
+1. Firebase'in doğru bir şekilde kurulduğundan emin olduktan sonra `android/build.gradle` dosyasında bağımlılıklar kısmına google servisleri bağımlılığını yapıştıralım.
+   (Eğer daha önce firebase kurulumu yaptıysan, zaten bu bağımlılığı eklemiş olman gerekiyor.)
+
+```js
+buildscript {
+    ...
+    dependencies {
+        ...
+        classpath('com.google.gms:google-services:4.3.3')
+        ...
+    }
+}
+
+```
+
+2. `android/app/build.gradle` app klasörü altındaki build.gradle dosyasına ise firebase-analytics bağımlılığını ekliyoruz. Şu sayfadan en güncel versiyonu ekle (https://firebase.google.com/support/release-notes/android)
+   Yine daha önce firebase kurulumu yaptıysan `apply plugin: 'com.google.gms.google-services'` satırını build.gradle dosyasının en başına eklemiş olman gerekiyor.
+
+```js
+dependencies {
+  ...
+  implementation 'com.google.firebase:firebase-analytics:17.3.0'
+  ...
+}
+
+apply plugin: 'com.google.gms.google-services' // Bu satırı gradle dosyasının en başına ekle
+
+```
+
+3. Daha sonra firebase tarafından sağlanan `google-services.json` dosyasını `android/app/` klasörü altına yapıştır.
+
+4. Firebase console sayfasında `Engage` altında `Cloud Messaging` kısmından cihazlara notification gönderilebilir.
