@@ -15,8 +15,8 @@ function App() {
       {/* <TodoAppHome /> */}
       {/* <TarifkaAppRouter /> */}
       {/* <KodWorkWrapper /> */}
-      {/* <CodeTalksAppRouter /> */}
-      <MapAppHome />
+      <CodeTalksAppRouter />
+      {/* <MapAppHome /> */}
     </View>
   );
 }
